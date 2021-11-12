@@ -3,31 +3,31 @@ package lesson3;
 public class Mathematics {
     public static void main(String[] args) {
         System.out.println("РАСЧЕТ ФАКТОРИАЛОВ:");
-        System.out.println("Факториал числа " + 0 + " равен: " + Factorial(0));
-        System.out.println("Факториал числа " + 1 + " равен: " + Factorial(1));
-        System.out.println("Факториал числа " + 5 + " равен: " + Factorial(5));
-        System.out.println("Факториал числа " + 10 + " равен: " + Factorial(10));
-        System.out.println("Факториал числа " + 15 + " равен: " + Factorial(15));
+        System.out.println("Факториал числа " + 0 + " равен: " + factorial(0));
+        System.out.println("Факториал числа " + 1 + " равен: " + factorial(1));
+        System.out.println("Факториал числа " + 5 + " равен: " + factorial(5));
+        System.out.println("Факториал числа " + 10 + " равен: " + factorial(10));
+        System.out.println("Факториал числа " + 15 + " равен: " + factorial(15));
         System.out.println();
 
         System.out.println("РАСЧЕТ КОРНЕЙ КВАДРАТНОГО УРАВНЕНИЯ:");
         int a = 0, b = 17, c = -18;
-        QuadraticEquationRoot(a, b, c);
+        quadraticEquationRoot(a, b, c);
         a = 1;
-        QuadraticEquationRoot(a, b, c);
+        quadraticEquationRoot(a, b, c);
         b = -6;
         c = 9;
-        QuadraticEquationRoot(a, b, c);
+        quadraticEquationRoot(a, b, c);
         a = 2;
         b = -3;
         c = 1;
-        QuadraticEquationRoot(a, b, c);
+        quadraticEquationRoot(a, b, c);
         a = -40;
         c = -50;
-        QuadraticEquationRoot(a, b, c);
+        quadraticEquationRoot(a, b, c);
     }
 
-    private static long Factorial (int n) {
+    private static long factorial(int n) {
         long factorial = 1;
 
         for (int i = 1; i < n + 1; i++) {
@@ -36,8 +36,7 @@ public class Mathematics {
         return factorial;
     }
 
-    private static void QuadraticEquationRoot (int a, int b, int c) {
-
+    private static void quadraticEquationRoot(int a, int b, int c) {
         double root1, root2;
 
         System.out.print("A=" + a + ", B=" + b + ", C=" + c + ". ");
@@ -46,9 +45,9 @@ public class Mathematics {
             return;
         }
 
-        double discriminant = b * b - 4 * a * c;
+        int discriminant = b * b - 4 * a * c;
 
-        if (discriminant < 0 ) {
+        if (discriminant < 0) {
             System.out.println("Нет действительных решений уравнения");
         } else if (discriminant == 0) {
             root1 = -b / (2.0 * a);
