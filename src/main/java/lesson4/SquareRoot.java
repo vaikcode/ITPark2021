@@ -1,7 +1,5 @@
 package lesson4;
 
-import jdk.jshell.execution.JdiDefaultExecutionControl;
-
 public class SquareRoot {
 
     public static void main(String[] args) {

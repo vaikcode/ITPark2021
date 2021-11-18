@@ -1,6 +1,7 @@
 package lesson3;
 
 public class Mathematics {
+
     public static void main(String[] args) {
         System.out.println("РАСЧЕТ ФАКТОРИАЛОВ:");
         System.out.println("Факториал числа " + 0 + " равен: " + factorial(0));
