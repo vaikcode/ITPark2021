@@ -10,7 +10,16 @@ public class MaxMinAvgRunner {
         int length;
 
         System.out.print("Введите длину массива: ");
-        length = console.nextInt();
+        if (!console.hasNextInt()) {
+            System.out.println("ОШИБКА! Должно быть введено число.");
+            return;
+        } else {
+            length = console.nextInt();
+            if (length < 1) {
+                System.out.println("ОШИБКА! Должно быть введено число больше нуля.");
+                return;
+            }
+        }
         int[] array = new int[length];
         for (int i = 0; i < length; i++) {
             array[i] = (int) (Math.random() * 100);
@@ -44,6 +53,6 @@ public class MaxMinAvgRunner {
         for (int i : array) {
             sum += i;
         }
-        return (double) sum/array.length;
+        return (double) sum / array.length;
     }
 }
