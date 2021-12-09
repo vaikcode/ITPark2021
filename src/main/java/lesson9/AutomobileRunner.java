@@ -18,7 +18,7 @@ public class AutomobileRunner {
 
         for (int i = 0; i < automobiles.length; i++) {
             distance = (int) (Math.random() * 1000 + 1);
-            System.out.print(i + ". Поставлена задача проехать " + distance + "км: ");
+            System.out.print(i + ". Поставлена задача проехать " + distance + " км: ");
             automobiles[i].move(distance);
         }
     }

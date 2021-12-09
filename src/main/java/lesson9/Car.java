@@ -2,7 +2,7 @@ package lesson9;
 
 public final class Car extends Automobile{
 
-    private int maxDistance = 500;
+    private static int maxDistance = 500;
 
     @Override
     public void move(int distance) {
