@@ -7,6 +7,7 @@ public class Tiger extends Felidae {
         super.name = name;
     }
 
+    @Override
     public String voice(){
         return "Рррр-рррр";
     }

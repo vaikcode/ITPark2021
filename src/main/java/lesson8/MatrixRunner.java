@@ -101,6 +101,5 @@ public class MatrixRunner {
         Matrix matrixResult42 = new Matrix(m, m);
         matrixResult42 = matrix41.cube();
         matrixResult42.print();
-
     }
 }

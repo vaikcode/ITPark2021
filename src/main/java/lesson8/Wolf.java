@@ -7,6 +7,7 @@ public class Wolf extends Canidae {
         super.name = name;
     }
 
+    @Override
     public String voice(){
         return "Уууу-уууу";
     }

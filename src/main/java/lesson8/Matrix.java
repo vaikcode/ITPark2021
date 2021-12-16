@@ -43,37 +43,52 @@ public class Matrix {
     }
 
     public int getAmount(int m, int n){
-        //TODO проверка допустимости индексов (if)
-        return this.matrix[m][n];
+        if (m > this.getLengthM() || n > this.getLengthN() || m < 0 || n < 0) {
+            System.out.println("Ошибка в методе Matrix.getAmount(). Индекс за пределами диапазонов матрицы.");
+            return 0;
+        } else {
+            return this.matrix[m][n];
+        }
     }
 
     public void setAmount(int m, int n, int value){
-        //TODO проверка допустимости индексов (if)
-        this.matrix[m][n] = value;
+        if (m > this.getLengthM() || n > this.getLengthN() || m < 0 || n < 0) {
+            System.out.println("Ошибка в методе Matrix.setAmount(). Индекс за пределами диапазонов матрицы.");
+        } else {
+            this.matrix[m][n] = value;
+        }
     }
 
     // Сложение матриц
     public Matrix add(Matrix matrix) {
-        //TODO проверка равных размеров двух матриц (if)
-        Matrix matrixResult = new Matrix(matrix.getLengthM(), matrix.getLengthN());
-        for (int i = 0; i < matrix.getLengthM(); i++) {
-            for (int j = 0; j < matrix.getLengthN(); j++) {
-                matrixResult.setAmount(i, j, this.matrix[i][j] + matrix.getAmount(i, j));
+        if (matrix.getLengthM() != this.getLengthM() || matrix.getLengthN() > this.getLengthN()) {
+            System.out.println("Ошибка в методе Matrix.add(). Слагаемые матрицы разного размера.");
+            return null;
+        } else {
+            Matrix matrixResult = new Matrix(matrix.getLengthM(), matrix.getLengthN());
+            for (int i = 0; i < matrix.getLengthM(); i++) {
+                for (int j = 0; j < matrix.getLengthN(); j++) {
+                    matrixResult.setAmount(i, j, this.matrix[i][j] + matrix.getAmount(i, j));
+                }
             }
+            return matrixResult;
         }
-        return matrixResult;
     }
 
     // Вычитание матриц
     public Matrix subtract(Matrix matrix) {
-        //TODO проверка равных размеров двух матриц (if)
-        Matrix matrixResult = new Matrix(matrix.getLengthM(), matrix.getLengthN());
-        for (int i = 0; i < matrix.getLengthM(); i++) {
-            for (int j = 0; j < matrix.getLengthN(); j++) {
-                matrixResult.setAmount(i, j, this.matrix[i][j] - matrix.getAmount(i, j));
+        if (matrix.getLengthM() != this.getLengthM() || matrix.getLengthN() > this.getLengthN()) {
+            System.out.println("Ошибка в методе Matrix.subtract(). Вычитаемые матрицы разного размера.");
+            return null;
+        } else {
+            Matrix matrixResult = new Matrix(matrix.getLengthM(), matrix.getLengthN());
+            for (int i = 0; i < matrix.getLengthM(); i++) {
+                for (int j = 0; j < matrix.getLengthN(); j++) {
+                    matrixResult.setAmount(i, j, this.matrix[i][j] - matrix.getAmount(i, j));
+                }
             }
+            return matrixResult;
         }
-        return matrixResult;
     }
 
     // Умножение матрицы на число
@@ -87,44 +102,60 @@ public class Matrix {
 
     // Возврат единичной матрицы
     public static Matrix identityMatrix(int arg) {
-        //TODO проверка arg >= 1 (if)
-        Matrix identityMatrix = new Matrix(arg, arg);
-        for (int i = 0; i < arg; i++) {
-            identityMatrix.setAmount(i, i, 1);
+        if (arg < 1) {
+            System.out.println("Ошибка в методе Matrix.identityMatrix(). Индекс должен быть больше нуля.");
+            return null;
+        } else {
+            Matrix identityMatrix = new Matrix(arg, arg);
+            for (int i = 0; i < arg; i++) {
+                identityMatrix.setAmount(i, i, 1);
+            }
+            return identityMatrix;
         }
-        return identityMatrix;
     }
 
     // Умножение матриц
     public Matrix multiply(Matrix matrix) {
-        //TODO проверка соответствия размеров двух матриц для операции умножения (if (this.getLengthM == getLengthN))
-        Matrix matrixResult = new Matrix(this.getLengthM(), matrix.getLengthN());
-        for (int i = 0; i < this.getLengthM(); i++) {
-            for (int j = 0; j < matrix.getLengthN(); j++) {
-                for (int k = 0; k < matrix.getLengthM(); k++) {
-                    matrixResult.setAmount(i, j, matrixResult.getAmount(i, j) + this.matrix[i][k]
-                            * matrix.getAmount(k, j));
+        if (this.getLengthM() != matrix.getLengthN()) {
+            System.out.println("Ошибка в методе Matrix.multiply(). Размеры матриц не соответсвуют операции умножения.");
+            return null;
+        } else {
+            Matrix matrixResult = new Matrix(this.getLengthM(), matrix.getLengthN());
+            for (int i = 0; i < this.getLengthM(); i++) {
+                for (int j = 0; j < matrix.getLengthN(); j++) {
+                    for (int k = 0; k < matrix.getLengthM(); k++) {
+                        matrixResult.setAmount(i, j, matrixResult.getAmount(i, j) + this.matrix[i][k]
+                                * matrix.getAmount(k, j));
+                    }
                 }
             }
+            return matrixResult;
         }
-        return matrixResult;
     }
 
     // Возведение матрицы в квадрат
     public Matrix square() {
-        //TODO проверка "квадратности" матрицы (if (this.getLengthM == this.getLengthN))
-        Matrix matrixResult = new Matrix(this.getLengthM(), this.getLengthN());
-        matrixResult = this.multiply(this);
-        return matrixResult;
+        if (this.getLengthM() != this.getLengthN()) {
+            System.out.println("Ошибка в методе Matrix.square(). Матрица должна быть квадратной.");
+            return null;
+        } else {
+            Matrix matrixResult = new Matrix(this.getLengthM(), this.getLengthN());
+            matrixResult = this.multiply(this);
+            return matrixResult;
+        }
     }
 
     // Возведение матрицы в куб
     public Matrix cube() {
-        //TODO проверка "квадратности" матрицы (if (this.getLengthM == this.getLengthN))
-        Matrix matrixResult = new Matrix(this.getLengthM(), this.getLengthN());
-        matrixResult = this.multiply(this);
-        matrixResult = matrixResult.multiply(this);
-        return matrixResult;
+        if (this.getLengthM() != this.getLengthN()) {
+            System.out.println("Ошибка в методе Matrix.cube(). Матрица должна быть квадратной.");
+            return null;
+        } else {
+            Matrix matrixResult = new Matrix(this.getLengthM(), this.getLengthN());
+            matrixResult = this.multiply(this);
+            matrixResult = matrixResult.multiply(this);
+            return matrixResult;
+        }
     }
 
     //TODO метод инвертирования матрицы в реализации без параметров

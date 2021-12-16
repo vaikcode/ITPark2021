@@ -7,6 +7,7 @@ public class Dog extends Canidae {
         super.name = name;
     }
 
+    @Override
     public String voice(){
         return "Гав-гав";
     }

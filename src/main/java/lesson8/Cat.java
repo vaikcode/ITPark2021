@@ -7,6 +7,7 @@ public class Cat extends Felidae {
         super.name = name;
     }
 
+    @Override
     public String voice(){
         return "Мяу-мяу";
     }
