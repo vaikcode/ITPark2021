@@ -7,9 +7,6 @@ import lesson11.exceptions.CarSpeedControlException;
 
 public class BlockpostRunner {
 
-//    int amount = 40;
-//    Car[] cars = new Car [amount];
-
     public static void main(String[] args) {
 
         int amount = 40;
