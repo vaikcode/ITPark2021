@@ -60,13 +60,13 @@ public class EmployeeRunner {
                 ));
         System.out.println("Вывод списка сотрудников:");
         System.out.println(employees);
-        System.out.println("");
+        System.out.println();
 
         Path xmlFile = Paths.get("src/main/resources/lesson20employees.xml");
 
         System.out.println("JAXB-маршалинг данных в XML-файл " + xmlFile);
         JAXB.marshal(employees, xmlFile.toFile());
-        System.out.println("");
+        System.out.println();
 
         System.out.println("=== Работа с XML-файлом ===");
         Document xmlDocument = getXmlDocument(xmlFile.toFile());
@@ -77,7 +77,7 @@ public class EmployeeRunner {
         System.out.println("Число сотрудников с зарплатой выше средней: " + employeeList.size());
         System.out.println("Список сотрудников с зарплатой выше средней:");
         System.out.println(employeeList);
-        System.out.println("");
+        System.out.println();
 
         System.out.println("=== Работа с JSON-файлом ===");
         System.out.println("Преобразование XML в JSON");
