@@ -1,15 +1,20 @@
 package lesson20.dto;
 
-import lombok.AllArgsConstructor;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
 
-    private int serviceNumber;
+    @XmlAttribute
+    private String serviceNumber;
+    @XmlAttribute
     private String login;
     private String fullName;
     private Department department;
