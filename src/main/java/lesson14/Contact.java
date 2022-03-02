@@ -14,8 +14,8 @@ public class Contact {
     private String firstName; // Имя
     private String middleName; // Отчество
     private long phoneNumber; // Телефонный номер
-    public PhoneBook[] phoneBookArray = new PhoneBook[10];
-    public List<PhoneBook> phoneBookArrayList = new ArrayList<>();
+    public PhoneBook[] phoneBookArray = new PhoneBook[10]; // Телефонная книга в виде массива
+    public List<PhoneBook> phoneBookArrayList = new ArrayList<>(); // Телефонная книга в виде ArrayList
 
     public Contact() {
     }
