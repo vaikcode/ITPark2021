@@ -14,8 +14,8 @@ public class Contact {
     private String firstName; // Имя
     private String middleName; // Отчество
     private long phoneNumber; // Телефонный номер
-    public PhoneBook[] phoneBookArray = new PhoneBook[10]; // Телефонная книга в виде массива
-    public List<PhoneBook> phoneBookArrayList = new ArrayList<>(); // Телефонная книга в виде ArrayList
+    private PhoneBook[] phoneBookArray = new PhoneBook[10]; // Телефонная книга в виде массива
+    private List<PhoneBook> phoneBookArrayList = new ArrayList<>(); // Телефонная книга в виде ArrayList
 
     public Contact() {
     }
@@ -26,6 +26,22 @@ public class Contact {
         this.firstName = firstName;
         this.middleName = middleName;
         this.phoneNumber = phoneNumber;
+    }
+
+    public void setPhoneBookArray(PhoneBook[] phoneBookArray) {
+        this.phoneBookArray = phoneBookArray;
+    }
+
+    public void setPhoneBookArrayList(List<PhoneBook> phoneBookArrayList) {
+        this.phoneBookArrayList = phoneBookArrayList;
+    }
+
+    public PhoneBook[] getPhoneBookArray() {
+        return phoneBookArray;
+    }
+
+    public List<PhoneBook> getPhoneBookArrayList() {
+        return phoneBookArrayList;
     }
 
     public int getId() {

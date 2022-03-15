@@ -31,39 +31,50 @@ public class PhoneBookArrayListRunner {
             for (int j = 0; j < amountOfPhoneBook; j++) {
                 int indexOfContact = easyRandom(0, amountOfContacts - 1);
                 Contact insertContact = contactsArrayList.listIterator(indexOfContact).next();
+//                contactsArrayList.listIterator(i).next().phoneBookArrayList.add(new PhoneBook(insertContact));
                 contactsArrayList.listIterator(i).next().phoneBookArrayList.add(new PhoneBook(insertContact));
             }
+            contactsArrayList.
         }
         System.out.println("Телефонные книги в коллекции контактов сгенерированы");
 
         // Тестовая выборка контакта и его телефонной книги
-        Contact contactTest = contactsArrayList.listIterator(0).next();
+//        Contact contactTest = contactsArrayList.listIterator(0).next();
+        Contact contactTest = contactsArrayList.get(0);
         System.out.println("= = = = =");
         System.out.println("Телефонная книга контакта " + contactTest + " :");
         for (int i = 0; i < amountOfPhoneBook; i++) {
-            System.out.println(contactTest.phoneBookArrayList.listIterator(i).next());
+//            System.out.println(contactTest.phoneBookArrayList.listIterator(i).next());
+            System.out.println(contactTest.getPhoneBookArrayList());
         }
 
         // Тестовая выборка контакта и его телефонной книги
-        contactTest = contactsArrayList.listIterator(1).next();
+//        contactTest = contactsArrayList.listIterator(1).next();
+        contactTest = contactsArrayList.get(1);
         System.out.println("= = = = =");
         System.out.println("Телефонная книга контакта " + contactTest + " :");
         for (int i = 0; i < amountOfPhoneBook; i++) {
-            System.out.println(contactTest.phoneBookArrayList.listIterator(i).next());
+//            System.out.println(contactTest.phoneBookArrayList.listIterator(i).next());
+            System.out.println(contactTest.getPhoneBookArrayList());
         }
 
         // Тестовая выборка контакта и его телефонной книги
-        contactTest = contactsArrayList.listIterator(contactsArrayList.size() - 1).next();
+//        contactTest = contactsArrayList.listIterator(contactsArrayList.size() - 1).next();
+        contactTest = contactsArrayList.get(contactsArrayList.size() - 1);
         System.out.println("= = = = =");
         System.out.println("Телефонная книга контакта " + contactTest + " :");
         for (int i = 0; i < amountOfPhoneBook; i++) {
-            System.out.println(contactTest.phoneBookArrayList.listIterator(i).next());
+//            System.out.println(contactTest.phoneBookArrayList.listIterator(i).next());
+            System.out.println(contactTest.getPhoneBookArrayList());
         }
 
         // Подсчет количества одинаковых номеров в телефонных книгах
         System.out.println("= = = = =");
         System.out.println("Подсчет количества одинаковых номеров в телефонных книгах");
         Timestamp timestampStart = new Timestamp(System.currentTimeMillis());
+////////////
+////////////
+////////////
         List<PhoneBook> phoneBookFrequency = new ArrayList<>();
         List<Integer> amountFrequency = new ArrayList<>();
         for (ListIterator<Contact> iteratorContact = contactsArrayList.listIterator(); iteratorContact.hasNext(); ) {
@@ -73,6 +84,9 @@ public class PhoneBookArrayListRunner {
             for (ListIterator<PhoneBook> iteratorPhoneBook = contact.phoneBookArrayList.listIterator();
                    iteratorPhoneBook.hasNext(); ) {
                 PhoneBook phoneBook = iteratorPhoneBook.next();
+////////////
+////////////
+////////////
                 if (phoneBookFrequency.contains(phoneBook)) {
                     System.out.println("---");
                     System.out.println("true");
