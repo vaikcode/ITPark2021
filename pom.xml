@@ -31,6 +31,7 @@
         <slf4j-api.version>1.7.36</slf4j-api.version>
         <slf4j-simple.version>1.7.36</slf4j-simple.version>
         <spring-boot-autoconfigure.version>2.6.4</spring-boot-autoconfigure.version>
+        <zip4j.version>2.10.0</zip4j.version>
     </properties>
 
     <dependencies>
@@ -108,13 +109,11 @@
             <artifactId>json-path</artifactId>
             <version>${json-path.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring-context.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
@@ -131,11 +130,15 @@
             <version>${slf4j-simple.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>${spring-boot-autoconfigure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.lingala.zip4j</groupId>
+            <artifactId>zip4j</artifactId>
+            <version>${zip4j.version}</version>
         </dependency>
     </dependencies>
 
