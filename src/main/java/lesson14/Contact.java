@@ -9,47 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contact {
-    private int id; // ID
-    private String secondName; // Фамилия
-    private String firstName; // Имя
-    private String middleName; // Отчество
-    private long phoneNumber; // Телефонный номер
-    private PhoneBook[] phoneBookArray = new PhoneBook[10]; // Телефонная книга в виде массива
-    private List<PhoneBook> phoneBookArrayList = new ArrayList<>(); // Телефонная книга в виде ArrayList
+    private String secondName;  // Фамилия
+    private String firstName;   // Имя
+    private String middleName;  // Отчество
+    private long phoneNumber;   // Телефонный номер
 
     public Contact() {
     }
 
-    public Contact(int id, String secondName, String firstName, String middleName, long phoneNumber) {
-        this.id = id;
+    public Contact(String secondName, String firstName, String middleName, long phoneNumber) {
         this.secondName = secondName;
         this.firstName = firstName;
         this.middleName = middleName;
         this.phoneNumber = phoneNumber;
-    }
-
-    public void setPhoneBookArray(PhoneBook[] phoneBookArray) {
-        this.phoneBookArray = phoneBookArray;
-    }
-
-    public void setPhoneBookArrayList(List<PhoneBook> phoneBookArrayList) {
-        this.phoneBookArrayList = phoneBookArrayList;
-    }
-
-    public PhoneBook[] getPhoneBookArray() {
-        return phoneBookArray;
-    }
-
-    public List<PhoneBook> getPhoneBookArrayList() {
-        return phoneBookArrayList;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getSecondName() {
@@ -86,8 +58,20 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "ID = " + this.id + ", " + this.secondName + " " + this.firstName + " " + this.middleName + ", " +
+        return this.secondName + " " + this.firstName + " " + this.middleName + ", " +
                 "tel: +" + this.phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Contact) {
+            if (secondName.equals(((Contact) o).secondName) && firstName.equals(((Contact) o).firstName)
+                    && middleName.equals(((Contact) o).middleName) && (phoneNumber == ((Contact) o).phoneNumber))
+                return true;
+            else
+                return false;
+        } else
+            return false;
     }
 
     public static String randomFirstName(){

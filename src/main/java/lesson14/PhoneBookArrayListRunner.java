@@ -1,17 +1,14 @@
-//package lesson14;
-//
-//import java.sql.Time;
-//import java.sql.Timestamp;
-//import java.text.SimpleDateFormat;
-//import java.util.ArrayList;
-//import java.util.Date;
-//import java.util.List;
-//import java.util.ListIterator;
-//
-//public class PhoneBookArrayListRunner {
-//
-//    public static void main(String[] args) {
-//
+package lesson14;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
+public class PhoneBookArrayListRunner {
+
+    public static void main(String[] args) {
+
 //        int amountOfContacts = 10;
 //        int amountOfPhoneBook = 5;
 //        List<Contact> contactsArrayList = new ArrayList<>();
@@ -31,11 +28,13 @@
 //        for (int i = 0; i < amountOfContacts; i++) {
 //            for (int j = 0; j < amountOfPhoneBook; j++) {
 //                int indexOfContact = easyRandom(0, amountOfContacts - 1);
-//                Contact insertContact = contactsArrayList.listIterator(indexOfContact).next();
+////                Contact insertContact = contactsArrayList.listIterator(indexOfContact).next();
+//                Contact insertContact = contactsArrayList.get(indexOfContact);
 ////                contactsArrayList.listIterator(i).next().phoneBookArrayList.add(new PhoneBook(insertContact));
-//                contactsArrayList.listIterator(i).next().phoneBookArrayList.add(new PhoneBook(insertContact));
+////                contactsArrayList.phoneBookArrayList.add(new PhoneBook(insertContact));
+//                contactsArrayList.add(new PhoneBookArray(insertContact));
 //            }
-//            contactsArrayList
+////            contactsArrayList
 //        }
 //        System.out.println("Телефонные книги в коллекции контактов сгенерированы");
 //
@@ -76,15 +75,15 @@
 //////////////
 //////////////
 //////////////
-//        List<PhoneBook> phoneBookFrequency = new ArrayList<>();
+//        List<PhoneBookArray> phoneBookFrequency = new ArrayList<>();
 //        List<Integer> amountFrequency = new ArrayList<>();
 //        for (ListIterator<Contact> iteratorContact = contactsArrayList.listIterator(); iteratorContact.hasNext(); ) {
 //            Contact contact = iteratorContact.next();
 //            int indexOfPhoneBook;
 //            int amount;
-//            for (ListIterator<PhoneBook> iteratorPhoneBook = contact.phoneBookArrayList.listIterator();
-//                   iteratorPhoneBook.hasNext(); ) {
-//                PhoneBook phoneBook = iteratorPhoneBook.next();
+//            for (ListIterator<PhoneBookArray> iteratorPhoneBook = contact.phoneBookArrayList.listIterator();
+//                 iteratorPhoneBook.hasNext(); ) {
+//                PhoneBookArray phoneBook = iteratorPhoneBook.next();
 //////////////
 //////////////
 //////////////
@@ -130,5 +129,5 @@
 //
 //    public static int easyRandom(int start, int end){
 //        return (int) (Math.random() * (end - start + 1)) + start;
-//    }
-//}
+    }
+}
